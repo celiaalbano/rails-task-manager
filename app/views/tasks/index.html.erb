@@ -1,0 +1,13 @@
+<h1>TO DO LIST</h1>
+
+<% @tasks.each do |task| %>
+  <h3><%= task.name %></h3>
+  <%= check_box_tag(:done) %>
+  <%= label_tag(:done, "Task done") %>
+  <%= link_to 'Edit task', edit_task_path(task) %>
+  <%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></br></br></br>
+<% end %>
+
+<%= link_to 'Create new task', new_task_path(@task) %>
